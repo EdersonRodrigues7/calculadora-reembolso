@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Reembolso</title>
+
+    <!--ICONS-->
+    <link
+      rel="shortcut icon"
+      href="https://trilhante.com.br/img/site/favicon.png"
+      type="image/png"
+    />
+
+    <!--FONTS and STYLES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section id="container">
+      <h1 class="title">Calculadora de Reembolso</h1>
+      <form>
+        <div id="user">
+          <label>Nome do Usuário</label>
+          <input type="text" id="userName" />
+          <label>Meses utilizados</label>
+          <input type="text" id="months" />
+        </div>
+        <p id="assinaturas">Assinatura</p>
+        <div class="assinaturas">
+          <div id="plano-anual">
+            <input type="radio" name="regular-anual" id="regular-anual" />
+            <label for="regular-anual">Trilhante Regular (anual)</label><br />
+            <input type="radio" name="oab-anual" id="oab-anual" />
+            <label for="oab-anual">Trilhante + OAB (anual)</label>
+          </div>
+          <div id="plano-quadri">
+            <input type="radio" name="regular-quadri" id="regular-quadri" />
+            <label for="regular-quadri">Trilhante Regular (quadri)</label><br />
+            <input type="radio" name="oab-quadri" id="oab-quadri" />
+            <label for="oab-quadri">Trilhante + OAB (quadri)</label>
+          </div>
+          <div id="infos">
+            <input type="radio" name="infos-anual" id="infos-anual" />
+            <label for="informativos">Informativos Anual</label><br />
+            <input type="radio" name="infos-sem" id="infos-sem" />
+            <label for="informativos">Informativos Semestral</label>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="button">Pronto!</button>
+        </div>
+      </form>
+      <div id="results" class="hide">
+        <h1 class="title">Resultado</h1>
+        <p id="message">
+          Olá <strong>Fulano</strong>! Você tem direito ao reembolso no valor de
+          <strong>R$ 000,00</strong> em função dos <strong>x</strong> meses
+          utilizados.
+        </p>
+      </div>
+    </section>
+    <script src="./main.js"></script>
+  </body>
+</html>

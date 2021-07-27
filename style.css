@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --body-color: hsl(16, 100%, 66%);
+  --container-color: hsl(0, 0%, 100%);
+  --title-color: hsl(0, 2%, 23%);
+  --text-color: hsl(0, 2%, 53%);
+  --results-color: hsla(16, 67%, 81%, 1);
+  --button-color: hsla(162, 48%, 49%, 1);
+  /* Fonts */
+  --body-font: 'Rubik';
+}
+
+body {
+  height: 100%;
+  background-color: var(--body-color);
+  font-family: var(--body-font);
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+#container {
+  margin: 4rem auto;
+  height: 30rem;
+  max-width: 82.5rem;
+  background-color: var(--container-color);
+  padding: 5rem 5rem 2rem 5rem;
+  border-radius: 2rem;
+}
+
+.assinaturas {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: auto;
+  font-size: 1rem;
+}
+
+#assinaturas {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#plano-anual,
+#plano-quadri,
+#infos {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+#plano-anual input,
+#plano-quadri input,
+#infos input {
+  margin-bottom: 1.5rem;
+}
+
+#user {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+#user label {
+  margin-right: 1rem;
+}
+
+#user input {
+  margin-right: 16.5rem;
+}
+
+.buttons {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+#button {
+  color: var(--container-color);
+  background-color: var(--button-color);
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  align-content: center;
+}
+
+#results {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#results p {
+  text-align: left;
+  margin: auto;
+  padding: 1rem;
+  background-color: var(--results-color);
+  max-width: 20rem;
+  border-radius: 1rem;
+}
+
+.hide {
+  display: none;
+}
