@@ -20,6 +20,7 @@ body {
   height: 100%;
   background-color: var(--body-color);
   font-family: var(--body-font);
+  padding-top: 4rem;
 }
 
 h1 {
@@ -56,7 +57,9 @@ input {
 }
 
 .buttons {
-  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  /* text-align: center; */
   margin: 2rem 0;
 }
 
