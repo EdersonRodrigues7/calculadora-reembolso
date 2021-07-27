@@ -30,41 +30,51 @@
         <div id="user">
           <label>Nome do Usuário</label>
           <input type="text" id="userName" />
+        </div>
+        <div id="meses">
           <label>Meses utilizados</label>
           <input type="text" id="months" />
         </div>
-        <p id="assinaturas">Assinatura</p>
-        <div class="assinaturas">
-          <div id="plano-anual">
-            <input type="radio" name="plano" id="regular-anual" />
-            <label for="regular-anual">Trilhante Regular (anual)</label><br />
-            <input type="radio" name="plano" id="oab-anual" />
-            <label for="oab-anual">Trilhante + OAB (anual)</label>
-          </div>
-          <div id="plano-quadri">
-            <input type="radio" name="plano" id="regular-quadri" />
-            <label for="regular-quadri">Trilhante Regular (quadri)</label><br />
-            <input type="radio" name="plano" id="oab-quadri" />
-            <label for="oab-quadri">Trilhante + OAB (quadri)</label>
-          </div>
-          <div id="infos">
-            <input type="radio" name="plano" id="infos-anual" />
-            <label for="informativos">Informativos Anual</label><br />
-            <input type="radio" name="plano" id="infos-sem" />
-            <label for="informativos">Informativos Semestral</label>
-          </div>
+        <div id="options">
+          <label for="assinaturas">Assinatura</label>
+          <select id="assinaturas">
+            <option value="">--Escolha uma assinatura--</option>
+            <option id="regular-anual" value="Trilhante Regular (anual)">
+              Trilhante Regular (anual)
+            </option>
+            <option id="oab-anual" value="Trilhante + OAB (anual)">
+              Trilhante + OAB (anual)
+            </option>
+            <option id="regular-quadri" value="Trilhante Regular (quadri)">
+              Trilhante Regular (quadri)
+            </option>
+            <option id="oab-quadri" value="Trilhante + OAB (quadri)">
+              Trilhante + OAB (quadri)
+            </option>
+            <option id="infos-anual" value="Informativos Anual">
+              Informativos Anual
+            </option>
+            <option id="infos-sem" value="Informativos Semestral">
+              Informativos Semestral
+            </option>
+          </select>
         </div>
+        <div></div>
         <div class="buttons">
           <button id="button">Pronto!</button>
+          <button id="reset-button">Resetar</button>
         </div>
       </form>
       <div id="results" class="hide">
         <h1 class="title">Resultado</h1>
-        <p id="message">
-          Olá <strong>Fulano</strong>! Você tem direito ao reembolso no valor de
-          <strong>R$ 000,00</strong> em função dos <strong>x</strong> meses
-          utilizados.
-        </p>
+        <ul class="message">
+          <li id="user-message">Usuário: Fulano</li>
+          <li id="plano-message">Assinatura: X</li>
+          <li id="months-message">Meses utilizados: X</li>
+          <li id="plano-value">Valor mensal: R$</li>
+          <li id="tax">Taxa administrativa: 7%;</li>
+          <li id="refund">Valor do reembolso: R$</li>
+        </ul>
       </div>
     </section>
     <script src="./main.js"></script>

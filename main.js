@@ -1,10 +1,12 @@
 // VARIABLES
 const tax = 0.07;
-const message = document.querySelector('#message');
 const button = document.querySelector('#button');
+const resetButton = document.querySelector('#reset-button');
+
+let valuePlano, answer;
 let userName = document.querySelector('#userName');
 let months = document.querySelector('#months');
-let answer = 0;
+
 let regularAnual = document.querySelector('#regular-anual');
 let oabAnual = document.querySelector('#oab-anual');
 let regularQuadri = document.querySelector('#regular-quadri');
@@ -41,15 +43,28 @@ const getMonths = function () {
 getMonths();
 
 const getMessage = function () {
-  message.textContent = `Olá ${userName}! Você tem direito ao reembolso no valor de
-R$${answer} em função dos ${months} meses
-utilizados.`;
+  document.querySelector(
+    '#user-message'
+  ).textContent = `Usuário: ${userName}; `;
+  document.querySelector('#plano-message').textContent = `Assinatura: ${
+    document.querySelector('.active').value
+  }; `;
+  document.querySelector(
+    '#months-message'
+  ).textContent = `Meses utilizados: ${months};`;
+  document.querySelector(
+    '#plano-value'
+  ).textContent = `Valor mensal: R$${valuePlano};`;
+  document.querySelector(
+    '#refund'
+  ).textContent = `Valor do reembolso: R$${answer};`;
 };
 
 //Regular anual - Pegando informações
 const getRegularAnual = function () {
   regularAnual.addEventListener('click', function () {
     regularAnual.classList.toggle('active');
+    valuePlano = 39.9;
   });
 };
 getRegularAnual();
@@ -58,6 +73,7 @@ getRegularAnual();
 const getOabAnual = function () {
   oabAnual.addEventListener('click', function () {
     oabAnual.classList.toggle('active');
+    valuePlano = 44.9;
   });
 };
 getOabAnual();
@@ -66,6 +82,7 @@ getOabAnual();
 const getRegularQuadri = function () {
   regularQuadri.addEventListener('click', function () {
     regularQuadri.classList.toggle('active');
+    valuePlano = 39.9;
   });
 };
 getRegularQuadri();
@@ -74,6 +91,7 @@ getRegularQuadri();
 const getOabQuadri = function () {
   oabQuadri.addEventListener('click', function () {
     oabQuadri.classList.toggle('active');
+    valuePlano = 44.9;
   });
 };
 getOabQuadri();
@@ -82,6 +100,7 @@ getOabQuadri();
 const getInfosAnual = function () {
   infosAnual.addEventListener('click', function () {
     infosAnual.classList.toggle('active');
+    valuePlano = 9.9;
   });
 };
 getInfosAnual();
@@ -90,6 +109,7 @@ getInfosAnual();
 const getInfosSem = function () {
   infosSem.addEventListener('click', function () {
     infosSem.classList.toggle('active');
+    valuePlano = 9.9;
   });
 };
 getInfosSem();
@@ -98,7 +118,7 @@ const readyButton = button.addEventListener('click', function (event) {
   //Mostrar resultado e aumentar janela
   event.preventDefault();
   document.querySelector('#results').classList.remove('hide');
-  document.querySelector('#container').style.height = '48rem';
+  document.querySelector('#container').style.height = '38rem';
 
   //Regular anual (cálculo)
   regularAnual = regularAnual.classList.contains('active');
@@ -120,22 +140,32 @@ const readyButton = button.addEventListener('click', function (event) {
 
   //Condições (cálculo)
   if (regularAnual) {
-    answer = parseFloat(calcRefund(39.9, 12)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 12)).toFixed(2);
     getMessage();
   } else if (oabAnual) {
-    answer = parseFloat(calcRefund(44.9, 12)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 12)).toFixed(2);
     getMessage();
   } else if (regularQuadri) {
-    answer = parseFloat(calcRefund(39.9, 4)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 4)).toFixed(2);
     getMessage();
   } else if (oabQuadri) {
-    answer = parseFloat(calcRefund(44.9, 4)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 4)).toFixed(2);
     getMessage();
   } else if (infosAnual) {
-    answer = parseFloat(calcRefund(9.9, 12)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 12)).toFixed(2);
     getMessage();
   } else if (infosSem) {
-    answer = parseFloat(calcRefund(9.9, 6)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 6)).toFixed(2);
     getMessage();
   }
 });
+
+const init = function () {
+  userName = '';
+  months = 0;
+  answer = 0;
+  document.querySelectorAll('input').classList.remove('active');
+  document.querySelector('#results').classList.add('hide');
+};
+
+resetButton.addEventListener('click', init);
