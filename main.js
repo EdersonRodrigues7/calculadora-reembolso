@@ -93,7 +93,7 @@ const readyButton = button.addEventListener('click', function (event) {
   //Mostrar resultado e aumentar janela
   event.preventDefault();
   document.querySelector('#results').classList.remove('hide');
-  document.querySelector('#container').style.height = '38rem';
+  document.querySelector('#container').style.height = 'fit-content';
 
   //Regular anual (cálculo)
   regularAnual = regularAnual.classList.contains('active');

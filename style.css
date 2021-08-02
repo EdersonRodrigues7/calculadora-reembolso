@@ -21,7 +21,7 @@ body {
   height: 100%;
   background-color: var(--body-color);
   font-family: var(--body-font);
-  padding-top: 4rem;
+  padding: 4rem 2rem 0 2rem;
 }
 
 h1 {
@@ -94,4 +94,43 @@ input {
 
 .hide {
   display: none;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.8rem;
+  }
+
+  #container {
+    max-width: 48rem;
+    height: fit-content;
+    border-radius: 2rem;
+  }
+  form {
+    display: block;
+  }
+  input {
+    margin-right: 0;
+    margin-bottom: 0.8rem;
+  }
+  #options label {
+    margin-right: 3.7rem;
+  }
+}
+
+@media (max-width: 586px) {
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.4rem;
+  }
+  #container {
+    padding: 1rem;
+  }
+  #options label {
+    margin-right: 2.1rem;
+  }
+  #assinaturas {
+    font-size: 0.8rem;
+  }
 }
