@@ -2,11 +2,13 @@
 const tax = 0.07;
 const button = document.querySelector('#button');
 const resetButton = document.querySelector('#reset-button');
+const forms = document.querySelector('select');
 
 let valuePlano, answer;
 let userName = document.querySelector('#userName');
 let months = document.querySelector('#months');
 
+let assinaturas = document.querySelector('#assinaturas');
 let regularAnual = document.querySelector('#regular-anual');
 let oabAnual = document.querySelector('#oab-anual');
 let regularQuadri = document.querySelector('#regular-quadri');
@@ -60,59 +62,32 @@ const getMessage = function () {
   ).textContent = `Valor do reembolso: R$${answer};`;
 };
 
-//Regular anual - Pegando informações
-const getRegularAnual = function () {
-  regularAnual.addEventListener('click', function () {
+const getAssinatura = () => {
+  if (forms.value === 'Trilhante Regular (anual)') {
     regularAnual.classList.toggle('active');
     valuePlano = 39.9;
-  });
-};
-getRegularAnual();
-
-//OAB anual - Pegando informações
-const getOabAnual = function () {
-  oabAnual.addEventListener('click', function () {
+  } else if (forms.value === 'Trilhante + OAB (anual)') {
     oabAnual.classList.toggle('active');
     valuePlano = 44.9;
-  });
-};
-getOabAnual();
-
-//Regular Quadrimestral - Pegando informações
-const getRegularQuadri = function () {
-  regularQuadri.addEventListener('click', function () {
+  } else if (forms.value === 'Trilhante Regular (quadri)') {
     regularQuadri.classList.toggle('active');
     valuePlano = 39.9;
-  });
-};
-getRegularQuadri();
-
-//OAB Quadrimestral - Pegando informações
-const getOabQuadri = function () {
-  oabQuadri.addEventListener('click', function () {
+  } else if (forms.value === 'Trilhante + OAB (quadri)') {
     oabQuadri.classList.toggle('active');
     valuePlano = 44.9;
-  });
-};
-getOabQuadri();
-
-//Informativos Anual - Pegando informações
-const getInfosAnual = function () {
-  infosAnual.addEventListener('click', function () {
+  } else if (forms.value === 'Informativos Anual') {
     infosAnual.classList.toggle('active');
     valuePlano = 9.9;
-  });
-};
-getInfosAnual();
-
-//Informativos Semestral - Pegando informações
-const getInfosSem = function () {
-  infosSem.addEventListener('click', function () {
+  } else if (forms.value === 'Informativos Semestral') {
     infosSem.classList.toggle('active');
     valuePlano = 9.9;
-  });
+  }
 };
-getInfosSem();
+
+const changeAssinatura = () => {
+  assinaturas.addEventListener('change', getAssinatura);
+};
+changeAssinatura();
 
 const readyButton = button.addEventListener('click', function (event) {
   //Mostrar resultado e aumentar janela

@@ -12,6 +12,7 @@
   --text-color: hsl(0, 2%, 53%);
   --results-color: hsla(16, 67%, 81%, 1);
   --button-color: hsla(162, 48%, 49%, 1);
+  --reset-color: red;
   /* Fonts */
   --body-font: 'Rubik';
 }
@@ -73,7 +74,7 @@ input {
 }
 
 #reset-button {
-  background-color: red;
+  background-color: var(--reset-color);
 }
 
 #results {
