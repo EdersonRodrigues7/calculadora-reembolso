@@ -4,7 +4,7 @@ const button = document.querySelector('#button');
 const resetButton = document.querySelector('#reset-button');
 const forms = document.querySelector('select');
 
-let valuePlano, answer;
+let valuePlano, answer, multiplier;
 let userName = document.querySelector('#userName');
 let months = document.querySelector('#months');
 
@@ -17,9 +17,9 @@ let infosAnual = document.querySelector('#infos-anual');
 let infosSem = document.querySelector('#infos-sem');
 
 // Functions
-const calcRefund = function (value, plano) {
+const calcRefund = function (value, plano, mult) {
   const totalValue = value * plano;
-  const refund = totalValue - tax * totalValue - months * value;
+  const refund = totalValue - tax * totalValue - months * mult;
   return refund;
 };
 
@@ -65,22 +65,28 @@ const getMessage = function () {
 const getAssinatura = () => {
   if (forms.value === 'Trilhante Regular (anual)') {
     regularAnual.classList.toggle('active');
-    valuePlano = 39.9;
+    valuePlano = 24.9;
+    multiplier = 39.9;
   } else if (forms.value === 'Trilhante + OAB (anual)') {
     oabAnual.classList.toggle('active');
-    valuePlano = 44.9;
+    valuePlano = 29.9;
+    multiplier = 44.9;
   } else if (forms.value === 'Trilhante Regular (quadri)') {
     regularQuadri.classList.toggle('active');
-    valuePlano = 39.9;
+    valuePlano = 34.9;
+    multiplier = 39.9;
   } else if (forms.value === 'Trilhante + OAB (quadri)') {
     oabQuadri.classList.toggle('active');
-    valuePlano = 44.9;
+    valuePlano = 39.9;
+    multiplier = 44.9;
   } else if (forms.value === 'Informativos Anual') {
     infosAnual.classList.toggle('active');
-    valuePlano = 9.9;
+    valuePlano = 7.9;
+    multiplier = 9.9;
   } else if (forms.value === 'Informativos Semestral') {
     infosSem.classList.toggle('active');
     valuePlano = 9.9;
+    multiplier = 9.9;
   }
 };
 
@@ -115,22 +121,22 @@ const readyButton = button.addEventListener('click', function (event) {
 
   //Condições (cálculo)
   if (regularAnual) {
-    answer = parseFloat(calcRefund(valuePlano, 12)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 12, multiplier)).toFixed(2);
     getMessage();
   } else if (oabAnual) {
-    answer = parseFloat(calcRefund(valuePlano, 12)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 12, multiplier)).toFixed(2);
     getMessage();
   } else if (regularQuadri) {
-    answer = parseFloat(calcRefund(valuePlano, 4)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 4, multiplier)).toFixed(2);
     getMessage();
   } else if (oabQuadri) {
-    answer = parseFloat(calcRefund(valuePlano, 4)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 4, multiplier)).toFixed(2);
     getMessage();
   } else if (infosAnual) {
-    answer = parseFloat(calcRefund(valuePlano, 12)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 12, multiplier)).toFixed(2);
     getMessage();
   } else if (infosSem) {
-    answer = parseFloat(calcRefund(valuePlano, 6)).toFixed(2);
+    answer = parseFloat(calcRefund(valuePlano, 6, multiplier)).toFixed(2);
     getMessage();
   }
 });
